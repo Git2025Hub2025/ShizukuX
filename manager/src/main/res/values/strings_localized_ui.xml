@@ -318,4 +318,14 @@
     <string name="external_relay_placeholder_summary">External relay for more apps will be added here later</string>
     <string name="one_tap_step_wireless_owner_auto">Wireless debugging enabled via device owner</string>
     <string name="starter_step_enable_wireless_owner_auto">Wireless debugging enabled via device owner</string>
+    <!-- Extra features screen -->
+    <string name="extra_tab_title">Extras</string>
+    <string name="extra_tab_home">Home</string>
+    <string name="extra_screen_title">Extra features</string>
+    <string name="extra_category_watchdog">Watchdog</string>
+    <string name="extra_category_dhizuku">Dhizuku bridge</string>
+    <string name="extra_category_device_control">Device control</string>
+    <string name="extra_category_experimental">Experimental</string>
+    <string name="extra_nav_device_owner_title">Dhizuku / Device owner</string>
+    <string name="extra_nav_device_owner_summary">Open Dhizuku bridge and device owner settings</string>
 </resources>
