@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- 附加功能：只收纳扩展类条目，Shizuku 基础设置仍留在原设置页 -->
+
+    <af.shizuku.manager.settings.CollapsiblePreferenceCategory
+        android:key="extra_category_backup"
+        android:title="@string/settings_backup_restore_category_title"
+        android:defaultValue="true">
+
+        <Preference
+            android:key="backup_settings"
+            android:title="@string/settings_backup_title"
+            android:summary="@string/settings_backup_summary"
+            android:icon="@drawable/ic_folder_24" />
+
+        <Preference
+            android:key="restore_settings"
+            android:title="@string/settings_restore_title"
+            android:summary="@string/settings_restore_summary"
+            android:icon="@drawable/ic_install_24" />
+
+    </af.shizuku.manager.settings.CollapsiblePreferenceCategory>
+
+    <af.shizuku.manager.settings.CollapsiblePreferenceCategory
+        android:key="extra_category_watchdog"
+        android:title="@string/extra_category_watchdog"
+        android:defaultValue="true">
+
+        <SwitchPreferenceCompat
+            android:key="watchdog"
+            android:title="@string/settings_watchdog"
+            android:summary="@string/settings_watchdog_summary"
+            android:icon="@drawable/ic_visibility_24" />
+
+        <SwitchPreferenceCompat
+            android:key="watchdog_crash_alerts"
+            android:title="@string/settings_watchdog_crash_alerts"
+            android:summary="@string/settings_watchdog_crash_alerts_summary"
+            android:icon="@drawable/ic_outline_notifications_active_24" />
+
+        <Preference
+            android:key="anti_kill_guide"
+            android:title="@string/settings_anti_kill_guide"
+            android:summary="@string/settings_anti_kill_guide_summary"
+            android:icon="@drawable/ic_outline_notifications_active_24" />
+
+    </af.shizuku.manager.settings.CollapsiblePreferenceCategory>
+
+    <af.shizuku.manager.settings.CollapsiblePreferenceCategory
+        android:key="extra_category_dhizuku"
+        android:title="@string/extra_category_dhizuku"
+        android:defaultValue="true">
+
+        <Preference
+            android:key="extra_nav_device_owner"
+            android:title="@string/extra_nav_device_owner_title"
+            android:summary="@string/extra_nav_device_owner_summary"
+            android:icon="@drawable/ic_admin_panel_settings_24" />
+
+    </af.shizuku.manager.settings.CollapsiblePreferenceCategory>
+
+    <af.shizuku.manager.settings.CollapsiblePreferenceCategory
+        android:key="extra_category_device_control"
+        android:title="@string/extra_category_device_control"
+        android:defaultValue="true">
+
+        <SwitchPreferenceCompat
+            android:key="show_device_control_home"
+            android:title="@string/settings_show_device_control_home"
+            android:icon="@drawable/ic_devices_24"
+            android:defaultValue="true" />
+
+        <SwitchPreferenceCompat
+            android:key="show_backup_apps_home"
+            android:title="@string/settings_show_backup_apps_home"
+            android:icon="@drawable/ic_folder_24"
+            android:defaultValue="true" />
+
+    </af.shizuku.manager.settings.CollapsiblePreferenceCategory>
+
+    <af.shizuku.manager.settings.CollapsiblePreferenceCategory
+        android:key="extra_category_experimental"
+        android:title="@string/extra_category_experimental"
+        android:defaultValue="false">
+
+        <af.shizuku.manager.settings.ExtraFeaturePreference
+            android:key="avf_manager_enabled"
+            android:title="@string/settings_vm_manager_title"
+            android:summary="@string/settings_avf_manager_summary"
+            android:icon="@drawable/ic_server_24"
+            android:defaultValue="true" />
+
+        <af.shizuku.manager.settings.ExtraFeaturePreference
+            android:key="shadow_binder_enabled"
+            android:title="@string/settings_shadow_binder"
+            android:summary="@string/settings_shadow_binder_summary"
+            android:icon="@drawable/ic_science_24"
+            android:defaultValue="false" />
+
+    </af.shizuku.manager.settings.CollapsiblePreferenceCategory>
+
+</PreferenceScreen>
