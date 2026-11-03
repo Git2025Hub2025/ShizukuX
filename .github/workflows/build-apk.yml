@@ -1,5 +1,5 @@
 # 由 githup App 生成（Android Gradle）· 2026-11-03
-# 修改说明：首次生成，未做改动
+# 修改说明：首次生成，增加 submodules: false，关闭子模块拉取
 # 每个步骤都带注释，可直接修改；改完请在上方填写修改说明再保存。
 
 name: Build APK
@@ -21,9 +21,11 @@ jobs:
   build:
     runs-on: ubuntu-latest   # GitHub 免费提供的 Linux 构建机
     steps:
-      # 1. 把仓库代码拉到构建机上
+      # 1. 把仓库代码拉到构建机上，关闭子模块
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          submodules: false
 
       # 2. 准备 JDK（Gradle 8 需要 17，老项目可改成 11）
       - name: Set up JDK 17
