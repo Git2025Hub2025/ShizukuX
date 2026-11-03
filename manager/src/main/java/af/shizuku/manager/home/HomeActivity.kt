@@ -30,10 +30,20 @@ import android.widget.TextView
 import androidx.activity.compose.setContent
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.weight
+import androidx.compose.material3.Icon
+import androidx.compose.material3.NavigationBar
+import androidx.compose.material3.NavigationBarItem
+import androidx.compose.material3.Text
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.ItemTouchHelper
@@ -198,8 +208,9 @@ open class HomeActivity : AppActivity(), MavericksView {
                 isBlackNightTheme = af.shizuku.manager.app.ThemeHelper.isBlackNightTheme(context),
                 isOneUi = ShizukuSettings.isOneUiThemeEnabled()
             ) {
-             androidx.compose.foundation.layout.Box(modifier = androidx.compose.ui.Modifier.fillMaxSize()) {
+             Column(modifier = Modifier.fillMaxSize()) {
                 if (navIndex == 1) {
+                    androidx.compose.foundation.layout.Box(modifier = Modifier.weight(1f)) {
                     af.shizuku.manager.settings.compose.ExtraScreen(
                         title = getString(R.string.extra_screen_title),
                         onNavigateUp = { navIndex = 0 },
@@ -220,14 +231,16 @@ open class HomeActivity : AppActivity(), MavericksView {
                             }
                         }
                     )
+                    }
                 } else
+                androidx.compose.foundation.layout.Box(modifier = Modifier.weight(1f)) {
                 HomeScreen(
                     isEditMode = isEditMode,
                     showEmptyState = showEmptyState,
                     wallpaperTheme = wallpaperTheme,
                     onStopClick = {
                         if (ShizukuStateMachine.isRunning()) {
-                            MaterialAlertDialogBuilder(this)
+                            MaterialAlertDialogBuilder(this@HomeActivity)
                                 .setMessage(R.string.dialog_stop_message)
                                 .setPositiveButton(android.R.string.ok) { _, _ ->
                                     ShizukuStateMachine.set(ShizukuStateMachine.State.STOPPING)
@@ -239,10 +252,10 @@ open class HomeActivity : AppActivity(), MavericksView {
                         }
                     },
                     onSettingsClick = {
-                        startActivity(Intent(this, SettingsActivity::class.java))
+                        startActivity(Intent(this@HomeActivity, SettingsActivity::class.java))
                     },
                     onHelpClick = {
-                        MaterialAlertDialogBuilder(this)
+                        MaterialAlertDialogBuilder(this@HomeActivity)
                             .setTitle(R.string.settings_shizuku_extra_features)
                             .setMessage(getString(R.string.help_general_plus_summary).toHtml())
                             .setPositiveButton(android.R.string.ok, null)
@@ -267,22 +280,29 @@ open class HomeActivity : AppActivity(), MavericksView {
                         recyclerView
                     }
                 )
-                androidx.compose.material3.NavigationBar {
-                    androidx.compose.material3.NavigationBarItem(
+                }
+                NavigationBar {
+                    NavigationBarItem(
                         selected = navIndex == 0,
                         onClick = { navIndex = 0 },
-                        icon = { androidx.compose.material3.Icon(
-                            painter = androidx.compose.ui.res.painterResource(R.drawable.ic_settings_outline_24),
-                            contentDescription = null) },
-                        label = { androidx.compose.material3.Text(androidx.compose.ui.res.stringResource(R.string.extra_tab_home)) }
+                        icon = {
+                            Icon(
+                                painter = painterResource(R.drawable.ic_settings_outline_24),
+                                contentDescription = null
+                            )
+                        },
+                        label = { Text(stringResource(R.string.extra_tab_home)) }
                     )
-                    androidx.compose.material3.NavigationBarItem(
+                    NavigationBarItem(
                         selected = navIndex == 1,
                         onClick = { navIndex = 1 },
-                        icon = { androidx.compose.material3.Icon(
-                            painter = androidx.compose.ui.res.painterResource(R.drawable.ic_bolt_24),
-                            contentDescription = null) },
-                        label = { androidx.compose.material3.Text(androidx.compose.ui.res.stringResource(R.string.extra_tab_title)) }
+                        icon = {
+                            Icon(
+                                painter = painterResource(R.drawable.ic_bolt_24),
+                                contentDescription = null
+                            )
+                        },
+                        label = { Text(stringResource(R.string.extra_tab_title)) }
                     )
                 }
                 }
