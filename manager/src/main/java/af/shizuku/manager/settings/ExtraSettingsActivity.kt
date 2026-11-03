@@ -5,7 +5,7 @@ import androidx.activity.compose.setContent
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
-import androidx.fragment.app.PreferenceFragmentCompat
+import androidx.preference.PreferenceFragmentCompat
 import af.shizuku.core.ui.AppActivity
 import af.shizuku.manager.R
 import af.shizuku.manager.settings.compose.ExtraScreen
