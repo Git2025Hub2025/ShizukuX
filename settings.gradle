@@ -39,7 +39,6 @@ include ":server", ":starter", ":shell", ":manager", ":common", ":database", ":c
 include ":core:ui"
 project(":core:ui").projectDir = file("core/ui")
 
-/*
 def root = "api"
 
 def propFile = file("local.properties")
@@ -49,7 +48,7 @@ if (propFile.canRead()) {
     props.load(new FileInputStream(propFile))
 
     if (props != null) {
-        if (props["api.useLocal"].equals("true")) {
+        if ("true" == props["api.useLocal"]) {
             root = props["api.dir"]
         }
     }
@@ -72,4 +71,3 @@ project(":provider").projectDir = file("$root${File.separator}provider")
 
 include ":server-shared"
 project(":server-shared").projectDir = file("$root${File.separator}server-shared")
-*/
