@@ -317,14 +317,4 @@
     <string name="external_relay_placeholder_summary">后续将在此支持更多应用的中转授权</string>
     <string name="one_tap_step_wireless_owner_auto">已通过设备所有者开启无线调试</string>
     <string name="starter_step_enable_wireless_owner_auto">已通过设备所有者开启无线调试</string>
-    <!-- 附加功能页 -->
-    <string name="extra_tab_title">附加功能</string>
-    <string name="extra_tab_home">主页</string>
-    <string name="extra_screen_title">附加功能</string>
-    <string name="extra_category_watchdog">Watchdog 守护</string>
-    <string name="extra_category_dhizuku">Dhizuku 兼容桥</string>
-    <string name="extra_category_device_control">设备控制</string>
-    <string name="extra_category_experimental">实验功能</string>
-    <string name="extra_nav_device_owner_title">Dhizuku / 设备所有者</string>
-    <string name="extra_nav_device_owner_summary">打开 Dhizuku 兼容桥与设备所有者权限设置</string>
 </resources>
